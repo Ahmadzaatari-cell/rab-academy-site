@@ -153,7 +153,7 @@
             border-radius: 2px;
         }
 
-        /* شبكة مرنة لمحاذاة وتكبير جميع الكروت الـ 5 بشكل تلقائي واحترافي */
+        /* شبكة عرض موحدة تضمن أن تكون جميع الكروت بنفس الحجم تماماً ومحاذية */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -189,38 +189,27 @@
         .card.english-track::before { background: var(--english-purple); }
         .card.muay-thai-track::before { background: var(--muay-thai-red); }
 
-        /* حاوية الصورة لملء الفراغات ومنع الخط الأسود تماماً */
+        /* توحيد حجم الحاوية لجميع الصور بنسبة أبعاد ثابتة والتخلص من الفراغ الأسود */
         .card-image-wrapper {
             width: 100%;
-            aspect-ratio: 1.35 / 1; 
+            aspect-ratio: 16 / 10; /* أبعاد مثالية لعرض الإنفوجرافيك والصور بوضوح */
             overflow: hidden;
             position: relative;
             background-color: var(--card-dark);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        /* التعديل الجوهري: استخدام cover وإلغاء المساحة السوداء العلوية والسفلية تماماً */
+        /* الحل السحري لإلغاء الحواف السوداء: استخدام zoom مع تقليص الهوامش داخلياً */
         .card-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover; 
-            object-position: top center; /* يضمن إبقاء الجزء العلوي والنصوص الهامة في الواجهة */
+            object-position: center 20%; /* يرفع مركز الصورة قليلاً لإخفاء الحواف السوداء العلوية والسفلية */
             transition: transform 0.4s ease;
         }
 
-        /* تحسين مخصص لكروت الإنفوجرافيك للحفاظ على جودة الأبعاد بدون حواف ميتة */
-        .card.phase-1 .card-image-wrapper img,
-        .card.phase-2 .card-image-wrapper img,
-        .card.phase-3 .card-image-wrapper img {
-            object-fit: cover;
-            object-position: center top;
-        }
-
         .card:hover .card-image-wrapper img {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
 
         .card:hover {
@@ -524,4 +513,32 @@
                     <label for="studentAge">Student Age / Preferred Track</label>
                     <select id="studentAge" name="student_track" required>
                         <option value="" disabled selected>Select age group</option>
-                        <option value="junior">Junior Explorer (Ages 8-
+                        <option value="junior">Junior Explorer (Ages 8-10) + Full Program Bundle</option>
+                        <option value="rising">Rising Engineer (Ages 11-12) + Full Program Bundle</option>
+                        <option value="advanced">Advanced Developer (Ages 13-15) + Full Program Bundle</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+
+        <div class="info-box">
+            <h4>💳 Tuition & Program Info</h4>
+            <p>• <strong>All-Inclusive Package:</strong> The registered spot completely covers the core Robotics/Cybersecurity track alongside full integrated access to BOTH the <strong>English Speaking Course</strong> and <strong>Muay Thai</strong> sport modules.</p>
+            <p>• <strong>Payment Methods:</strong> We accept direct cash settlement or transfers via Whish Money to our official account: <strong>0096170987526</strong>.</p>
+            <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
+                📞 Questions? Contact us directly via WhatsApp: 
+                <a href="https://wa.me/96170987526" target="_blank" class="whatsapp-link"> +961 70 987 526</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Powered by an electronics engineering group</p>
+        <p style="margin-top: 5px; font-weight: 700;">Headed by <strong>Ahmad Zaatari</strong></p>
+        <p style="font-size: 0.85rem; color: var(--cyber-cyan); margin-top: 5px; letter-spacing: 0.5px;">Electronics Engineer & Cybersecurity Specialist</p>
+        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Robotics Academy of Beirut. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
