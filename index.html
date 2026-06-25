@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robotics Academy of Beirut | RAB</title>
     
-    <!-- SEO Tags -->
+    <meta name="google-site-verification" content="f19ab22248d08e21" />
+    <meta name="google-site-verification" content="Ba1pidEX9flI_yTNkallGWQEZHceMaeJPRd6gJTbax4" />
+
     <meta name="description" content="The premier Robotics Academy of Beirut (RAB). Empowering kids and teens with electronics engineering, robotics hardware automation, cybersecurity, technical English, and Muay Thai fitness.">
     <meta name="keywords" content="Robotics Academy of Beirut, RAB, Robotics Lebanon, STEM Beirut, Ahmad Zaatari, Learn Robotics Beirut, Cybersecurity for kids, English speaking course, Muay Thai kids Beirut">
-    <meta name="google-site-verification" content="Ba1pidEX9flI_yTNkallGWQEZHceMaeJPRd6gJTbax4" />
     <meta name="robots" content="index, follow">
 
     <style>
@@ -127,7 +128,7 @@
             box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
         }
 
-        /* Curriculum Section */
+        /* Curriculum Section Layout Centering */
         .curriculum-section {
             padding: 80px 8%;
             background-color: rgba(17, 23, 38, 0.4);
@@ -151,10 +152,21 @@
             border-radius: 2px;
         }
 
+        /* 3-Column Grid for main tracks */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* 2-Column Centered Row for English & Muay Thai */
+        .secondary-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .card {
@@ -334,6 +346,17 @@
             color: var(--shield-gold);
         }
 
+        /* Responsive Layout Updates */
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .secondary-row {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                max-width: 100%;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
@@ -342,7 +365,6 @@
 </head>
 <body>
 
-    <!-- Header Navigation Bar -->
     <nav>
         <div class="logo-container">
             <svg viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
@@ -370,19 +392,16 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <h1>Welcome to the <br><span>Robotics Academy of Beirut</span></h1>
         <p>Empowering the next generation of technology leaders through high-impact hardware design, robotics engineering, English communication mastery, and physical fitness.</p>
         <a href="#register" class="cta-button">Pre-Register Now</a>
     </section>
 
-    <!-- Curriculum Section -->
     <section class="curriculum-section" id="curriculum">
         <h2 class="section-title">Essential Academic & Growth Programs</h2>
+        
         <div class="grid">
-            
-            <!-- Track 1 -->
             <div class="card phase-1">
                 <span class="age">Ages 8 – 10</span>
                 <h3>The Junior Explorer</h3>
@@ -394,7 +413,6 @@
                 </ul>
             </div>
 
-            <!-- Track 2 -->
             <div class="card phase-2">
                 <span class="age">Ages 11 – 12</span>
                 <h3>The Rising Engineer</h3>
@@ -406,7 +424,6 @@
                 </ul>
             </div>
 
-            <!-- Track 3 -->
             <div class="card phase-3">
                 <span class="age">Ages 13 – 15</span>
                 <h3>The Advanced Developer</h3>
@@ -417,8 +434,9 @@
                     <li>Embedded systems firmware encryption defense</li>
                 </ul>
             </div>
+        </div>
 
-            <!-- Track 4: English Course -->
+        <div class="secondary-row">
             <div class="card english-track">
                 <span class="age">Essential Growth</span>
                 <h3>English Speaking</h3>
@@ -430,7 +448,6 @@
                 </ul>
             </div>
 
-            <!-- Track 5: Muay Thai Sport -->
             <div class="card muay-thai-track">
                 <span class="age">Essential Sport</span>
                 <h3>Muay Thai Martial Arts</h3>
@@ -441,11 +458,9 @@
                     <li>Enhancing mental focus & agility</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
-    <!-- Registration Form Section -->
     <section class="registration-section" id="register">
         <h2 class="section-title">Student Pre-Registration</h2>
         <div class="form-container">
@@ -475,7 +490,6 @@
             </form>
         </div>
 
-        <!-- Payment Methods Info Box -->
         <div class="info-box">
             <h4>💳 Tuition & Program Info</h4>
             <p>• <strong>All-Inclusive Package:</strong> The registered spot completely covers the core Robotics/Cybersecurity track alongside full integrated access to BOTH the <strong>English Speaking Course</strong> and <strong>Muay Thai</strong> sport modules.</p>
@@ -487,7 +501,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>Powered by an electronics engineering group</p>
         <p style="margin-top: 5px; font-weight: 700;">Headed by <strong>Ahmad Zaatari</strong></p>
