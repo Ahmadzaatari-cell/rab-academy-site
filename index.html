@@ -201,25 +201,29 @@
         .card.english-track::before { background: var(--english-purple); }
         .card.muay-thai-track::before { background: var(--muay-thai-red); }
 
-        /* Card Image Styles Optimized for Custom Artwork Infographics */
+        /* Card Image Styles Optimized for Infographics - FIXED RESIZING */
         .card-image-wrapper {
             width: 100%;
-            height: 230px;
+            height: auto;
+            aspect-ratio: 4 / 3; /* Maintains standard widescreen infographic box */
             overflow: hidden;
             position: relative;
-            background-color: #060913;
+            background-color: #0c101b; /* Slightly darker to match image backing smoothly */
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .card-image-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            object-fit: contain; /* Prevents text cutting and scales correctly */
+            transition: transform 0.4s ease;
         }
 
         .card:hover .card-image-wrapper img {
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
 
         .card:hover {
