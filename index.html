@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="google-site-verification" content="Ba1pidEX9flI_yTNkallGWQEZHceMaeJPRd6gJTbax4" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robotics Academy of Beirut | RAB</title>
+    
+    <!-- SEO Optimization Tags for Google -->
+    <meta name="description" content="The premier Robotics Academy of Beirut (RAB). Empowering kids and teens with electronics engineering, robotics hardware automation, and cybersecurity foundational skills.">
+    <meta name="keywords" content="Robotics Academy of Beirut, RAB, Robotics Lebanon, STEM Beirut, Ahmad Zaatari, Learn Robotics Beirut, Cybersecurity for kids">
+    <meta name="robots" content="index, follow">
+
     <style>
         :root {
             --bg-dark: #060913;
@@ -198,6 +203,68 @@
             margin-bottom: 8px;
         }
 
+        /* Registration Form Section */
+        .registration-section {
+            padding: 80px 8%;
+            background-color: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: var(--card-dark);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(6, 9, 19, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--cyber-cyan);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-blue));
+            border: none;
+            border-radius: 6px;
+            color: var(--bg-dark);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -223,7 +290,6 @@
     <!-- Header Navigation Bar -->
     <nav>
         <div class="logo-container">
-            <!-- EMBEDDED RAB LOGO ENGINE -->
             <svg viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="cyberCyan" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F2FE" /><stop offset="100%" stop-color="#4FACFE" /></linearGradient>
@@ -251,23 +317,21 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#curriculum">Curriculum</a></li>
-            <li><a href="#about">Engineering Board</a></li>
+            <li><a href="#register">Pre-Register</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Showcase Section -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <h1>Welcome to the <br><span>Robotics Academy of Beirut</span></h1>
         <p>Empowering the next generation of engineers and technology leaders through high-impact hardware design, modern automation, and robust cybersecurity principles.</p>
-        <a href="#curriculum" class="cta-button">Explore Programs</a>
+        <a href="#register" class="cta-button">Pre-Register Now</a>
     </section>
 
-    <!-- Interactive Academy Curriculum Sections -->
+    <!-- Curriculum Section -->
     <section class="curriculum-section" id="curriculum">
         <h2 class="section-title">Educational Tracks</h2>
         <div class="grid">
-            
-            <!-- Track 1 -->
             <div class="card phase-1">
                 <span class="age">Ages 8 – 10</span>
                 <h3>The Junior Explorer</h3>
@@ -278,8 +342,6 @@
                     <li>Introduction to smart robotic hardware</li>
                 </ul>
             </div>
-
-            <!-- Track 2 -->
             <div class="card phase-2">
                 <span class="age">Ages 11 – 12</span>
                 <h3>The Rising Engineer</h3>
@@ -290,8 +352,6 @@
                     <li>Foundational embedded automation</li>
                 </ul>
             </div>
-
-            <!-- Track 3 -->
             <div class="card phase-3">
                 <span class="age">Ages 13 – 15</span>
                 <h3>The Advanced Developer</h3>
@@ -302,11 +362,42 @@
                     <li>Embedded systems firmware encryption defense</li>
                 </ul>
             </div>
-
         </div>
     </section>
 
-    <!-- Corporate Verified Footer Signature -->
+    <!-- Registration Form Section -->
+    <section class="registration-section" id="register">
+        <h2 class="section-title">Student Pre-Registration</h2>
+        <div class="form-container">
+            <!-- Using Formspree (Free tool) to forward submissions to your email -->
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST">
+                <div class="form-group">
+                    <label for="parentName">Parent / Guardian Name</label>
+                    <input type="text" id="parentName" name="parent_name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (WhatsApp)</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+961 XX XXX XXX">
+                </div>
+                <div class="form-group">
+                    <label for="studentAge">Student Age / Preferred Track</label>
+                    <select id="studentAge" name="student_track" required>
+                        <option value="" disabled selected>Select age group</option>
+                        <option value="junior">Junior Explorer (Ages 8-10)</option>
+                        <option value="rising">Rising Engineer (Ages 11-12)</option>
+                        <option value="advanced">Advanced Developer (Ages 13-15)</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <p>Powered by an electronics engineering group</p>
         <p style="margin-top: 5px; font-weight: 700;">Headed by <strong>Ahmad Zaatari</strong></p>
