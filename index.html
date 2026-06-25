@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Site Verification Tag -->
     <meta name="google-site-verification" content="Ba1pidEX9flI_yTNkallGWQEZHceMaeJPRd6gJTbax4" />
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robotics Academy of Beirut | RAB</title>
     
-    <meta name="description" content="The premier Robotics Academy of Beirut (RAB). Empowering kids and teens with electronics engineering, robotics hardware automation, and cybersecurity foundational skills.">
-    <meta name="keywords" content="Robotics Academy of Beirut, RAB, Robotics Lebanon, STEM Beirut, Ahmad Zaatari, Learn Robotics Beirut, Cybersecurity for kids">
+    <!-- SEO Optimization Tags for Google -->
+    <meta name="description" content="The premier Robotics Academy of Beirut (RAB). Empowering kids and teens with electronics engineering, robotics hardware automation, cybersecurity, technical English, and Muay Thai fitness.">
+    <meta name="keywords" content="Robotics Academy of Beirut, RAB, Robotics Lebanon, STEM Beirut, Ahmad Zaatari, Learn Robotics Beirut, Cybersecurity for kids, English speaking course, Muay Thai kids Beirut">
     <meta name="robots" content="index, follow">
 
     <style>
@@ -19,6 +21,7 @@
             --cyber-blue: #4FACFE;
             --signal-orange: #FF512F;
             --shield-gold: #F0A500;
+            --muay-thai-red: #E63946;
             --text-light: #FFFFFF;
             --text-muted: #8A99AD;
             --whatsapp-green: #25D366;
@@ -175,6 +178,7 @@
 
         .card.phase-2::before { background: var(--signal-orange); }
         .card.phase-3::before { background: var(--shield-gold); }
+        .card.extra-track::before { background: var(--muay-thai-red); }
 
         .card:hover {
             transform: translateY(-5px);
@@ -203,6 +207,10 @@
 
         .card ul li {
             margin-bottom: 8px;
+        }
+
+        .card ul li strong {
+            color: var(--text-light);
         }
 
         /* Registration Form Section */
@@ -334,6 +342,7 @@
 </head>
 <body>
 
+    <!-- Header Navigation Bar -->
     <nav>
         <div class="logo-container">
             <svg viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
@@ -367,14 +376,16 @@
         </ul>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <h1>Welcome to the <br><span>Robotics Academy of Beirut</span></h1>
-        <p>Empowering the next generation of engineers and technology leaders through high-impact hardware design, modern automation, and robust cybersecurity principles.</p>
+        <p>Empowering the next generation of technology leaders through high-impact hardware design, robotics engineering, English communication mastery, and physical fitness.</p>
         <a href="#register" class="cta-button">Pre-Register Now</a>
     </section>
 
+    <!-- Curriculum Section -->
     <section class="curriculum-section" id="curriculum">
-        <h2 class="section-title">Educational Tracks</h2>
+        <h2 class="section-title">Educational Tracks & Added Programs</h2>
         <div class="grid">
             <div class="card phase-1">
                 <span class="age">Ages 8 – 10</span>
@@ -406,9 +417,19 @@
                     <li>Embedded systems firmware encryption defense</li>
                 </ul>
             </div>
+            <!-- الكرت الجديد الخاص بالأنشطة الإضافية المدمجة -->
+            <div class="card extra-track">
+                <span class="age">All Students</span>
+                <h3>Integrated Growth Programs</h3>
+                <ul>
+                    <li><strong>English Speaking Course:</strong> Built-in interactive sessions focused on public speaking, technical presentation skills, and pitching engineering projects confidently.</li>
+                    <li><strong>Muay Thai Martial Arts:</strong> Professional structured sport sessions to build physical endurance, focus, discipline, and essential self-defense skills.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
+    <!-- Registration Form Section -->
     <section class="registration-section" id="register">
         <h2 class="section-title">Student Pre-Registration</h2>
         <div class="form-container">
@@ -430,9 +451,9 @@
                     <label for="studentAge">Student Age / Preferred Track</label>
                     <select id="studentAge" name="student_track" required>
                         <option value="" disabled selected>Select age group</option>
-                        <option value="junior">Junior Explorer (Ages 8-10)</option>
-                        <option value="rising">Rising Engineer (Ages 11-12)</option>
-                        <option value="advanced">Advanced Developer (Ages 13-15)</option>
+                        <option value="junior">Junior Explorer (Ages 8-10) + English & Muay Thai</option>
+                        <option value="rising">Rising Engineer (Ages 11-12) + English & Muay Thai</option>
+                        <option value="advanced">Advanced Developer (Ages 13-15) + English & Muay Thai</option>
                     </select>
                 </div>
                 
@@ -440,9 +461,10 @@
             </form>
         </div>
 
+        <!-- Payment Methods Info Box -->
         <div class="info-box">
-            <h4>💳 Tuition & Payment Info</h4>
-            <p>• <strong>Registration:</strong> Submitting this application secures a pending spot. Enrollment is finalized upon settling the course fees.</p>
+            <h4>💳 Tuition & Program Info</h4>
+            <p>• <strong>All-Inclusive Package:</strong> The registered spot covers the core Robotics/Cybersecurity track along with full access to the integrated <strong>English Speaking Course</strong> and <strong>Muay Thai</strong> sports sessions.</p>
             <p>• <strong>Payment Methods:</strong> We accept direct cash settlement or transfers via Whish Money to our official account: <strong>0096170987526</strong>.</p>
             <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
                 📞 Questions? Contact us directly via WhatsApp: 
@@ -453,6 +475,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>Powered by an electronics engineering group</p>
         <p style="margin-top: 5px; font-weight: 700;">Headed by <strong>Ahmad Zaatari</strong></p>
