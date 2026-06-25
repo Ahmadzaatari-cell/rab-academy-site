@@ -173,7 +173,7 @@
             background-color: var(--card-dark);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            padding: 0 0 35px 0;
+            padding: 0 0 35px 0; /* Padding adjustments for image flush top */
             transition: transform 0.3s, border-color 0.3s;
             position: relative;
             overflow: hidden;
@@ -201,13 +201,13 @@
         .card.english-track::before { background: var(--english-purple); }
         .card.muay-thai-track::before { background: var(--muay-thai-red); }
 
-        /* Card Image Styles with Dark Overlay Filter */
+        /* Card Image Styles */
         .card-image-wrapper {
             width: 100%;
-            height: 200px;
+            height: 180px;
             overflow: hidden;
             position: relative;
-            background-color: #060913;
+            background-color: rgba(6, 9, 19, 0.5);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -215,13 +215,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease, filter 0.5s ease;
-            filter: brightness(0.7) contrast(1.1);
+            transition: transform 0.5s ease;
+            opacity: 0.85;
         }
 
         .card:hover .card-image-wrapper img {
             transform: scale(1.05);
-            filter: brightness(0.9) contrast(1);
+            opacity: 1;
         }
 
         .card:hover {
@@ -434,7 +434,7 @@
         <div class="grid">
             <div class="card phase-1">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" alt="Junior robotics education framework">
+                    <img src="robotics-student.jpg" alt="Students learning robotics">
                 </div>
                 <div class="card-content">
                     <span class="age">Ages 8 – 10</span>
@@ -450,7 +450,7 @@
 
             <div class="card phase-2">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?auto=format&fit=crop&w=600&q=80" alt="Teen student engineering electronic circuits">
+                    <img src="robotics-student.jpg" alt="Students building circuits">
                 </div>
                 <div class="card-content">
                     <span class="age">Ages 11 – 12</span>
@@ -466,7 +466,7 @@
 
             <div class="card phase-3">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Advanced hardware automation and development coding">
+                    <img src="robotics-student.jpg" alt="Advanced robotics development">
                 </div>
                 <div class="card-content">
                     <span class="age">Ages 13 – 15</span>
@@ -484,7 +484,7 @@
         <div class="secondary-row">
             <div class="card english-track">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80" alt="Interactive english speaking presentation presentation coaching">
+                    <img src="english-student.jpg" alt="Students practicing english speaking">
                 </div>
                 <div class="card-content">
                     <span class="age">Essential Growth</span>
@@ -500,7 +500,7 @@
 
             <div class="card muay-thai-track">
                 <div class="card-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=600&q=80" alt="Physical fitness training and muay thai martial arts class">
+                    <img src="muay-thai-student.jpg" alt="Students practicing muay thai martial arts">
                 </div>
                 <div class="card-content">
                     <span class="age">Essential Sport</span>
