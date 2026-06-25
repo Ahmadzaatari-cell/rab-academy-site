@@ -153,12 +153,21 @@
             border-radius: 2px;
         }
 
-        /* شبكة عرض موحدة تضمن أن تكون جميع الكروت بنفس الحجم تماماً ومحاذية */
-        .grid {
+        /* الصف الأول: 3 أعمدة ثابتة ومحددة للروبوتكس */
+        .grid-main {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        /* الصف الثاني: كرتين ممركزين في المنتصف للانجليزي والرياضة */
+        .grid-secondary {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 840px;
+            margin: 0 auto;
         }
 
         .card {
@@ -189,27 +198,29 @@
         .card.english-track::before { background: var(--english-purple); }
         .card.muay-thai-track::before { background: var(--muay-thai-red); }
 
-        /* توحيد حجم الحاوية لجميع الصور بنسبة أبعاد ثابتة والتخلص من الفراغ الأسود */
+        /* حاوية الصورة لملء الفراغات ومنع الخط الأسود تماماً */
         .card-image-wrapper {
             width: 100%;
-            aspect-ratio: 16 / 10; /* أبعاد مثالية لعرض الإنفوجرافيك والصور بوضوح */
+            aspect-ratio: 1.35 / 1; 
             overflow: hidden;
             position: relative;
             background-color: var(--card-dark);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* الحل السحري لإلغاء الحواف السوداء: استخدام zoom مع تقليص الهوامش داخلياً */
         .card-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover; 
-            object-position: center 20%; /* يرفع مركز الصورة قليلاً لإخفاء الحواف السوداء العلوية والسفلية */
+            object-position: center top;
             transition: transform 0.4s ease;
         }
 
         .card:hover .card-image-wrapper img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .card:hover {
@@ -353,24 +364,63 @@
             font-weight: 700;
         }
 
-        /* Footer */
+        /* Footer - ممركز ومنسق باحترافية */
         footer {
             text-align: center;
             padding: 50px 8%;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             background-color: var(--bg-dark);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        footer strong {
+        footer p {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        footer .headline {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        footer .headline strong {
             color: var(--shield-gold);
+        }
+
+        footer .subtitle {
+            font-size: 0.85rem;
+            color: var(--cyber-cyan);
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        footer .copyright {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* Responsive Layout Updates */
+        @media (max-width: 992px) {
+            .grid-main {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .grid-secondary {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.3rem; }
             .nav-links { display: none; }
-            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -410,7 +460,7 @@
     <section class="curriculum-section" id="curriculum">
         <h2 class="section-title">Essential Academic & Growth Programs</h2>
         
-        <div class="grid">
+        <div class="grid-main">
             <div class="card phase-1">
                 <div class="card-image-wrapper">
                     <img src="image_1.png" alt="The Junior Explorer Curriculum Artwork">
@@ -458,7 +508,9 @@
                     </ul>
                 </div>
             </div>
+        </div>
 
+        <div class="grid-secondary">
             <div class="card english-track">
                 <div class="card-image-wrapper">
                     <img src="image_4.png" alt="Essential Growth English Speaking Class Artwork">
@@ -535,9 +587,9 @@
 
     <footer>
         <p>Powered by an electronics engineering group</p>
-        <p style="margin-top: 5px; font-weight: 700;">Headed by <strong>Ahmad Zaatari</strong></p>
-        <p style="font-size: 0.85rem; color: var(--cyber-cyan); margin-top: 5px; letter-spacing: 0.5px;">Electronics Engineer & Cybersecurity Specialist</p>
-        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Robotics Academy of Beirut. All Rights Reserved.</p>
+        <p class="headline">Headed by <strong>Ahmad Zaatari</strong></p>
+        <p class="subtitle">Electronics Engineer & Cybersecurity Specialist</p>
+        <p class="copyright">&copy; 2026 Robotics Academy of Beirut. All Rights Reserved.</p>
     </footer>
 
 </body>
