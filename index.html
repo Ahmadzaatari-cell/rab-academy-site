@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Site Verification Tag -->
     <meta name="google-site-verification" content="Ba1pidEX9flI_yTNkallGWQEZHceMaeJPRd6gJTbax4" />
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robotics Academy of Beirut | RAB</title>
     
+    <!-- SEO Optimization Tags for Google -->
     <meta name="description" content="The premier Robotics Academy of Beirut (RAB). Empowering kids and teens with electronics engineering, robotics hardware automation, and cybersecurity foundational skills.">
     <meta name="keywords" content="Robotics Academy of Beirut, RAB, Robotics Lebanon, STEM Beirut, Ahmad Zaatari, Learn Robotics Beirut, Cybersecurity for kids">
     <meta name="robots" content="index, follow">
@@ -254,20 +256,18 @@
         .submit-btn {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(90deg, var(--signal-orange), #DD2476);
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-blue));
             border: none;
             border-radius: 6px;
-            color: var(--text-light);
-            font-size: 1.05rem;
+            color: var(--bg-dark);
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
-            transition: opacity 0.3s, transform 0.2s;
-            box-shadow: 0 4px 15px rgba(255, 81, 47, 0.3);
+            transition: opacity 0.3s;
         }
 
         .submit-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
+            opacity: 0.9;
         }
 
         /* Payment & Support Notice Details */
@@ -334,6 +334,7 @@
 </head>
 <body>
 
+    <!-- Header Navigation Bar -->
     <nav>
         <div class="logo-container">
             <svg viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
@@ -367,12 +368,14 @@
         </ul>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <h1>Welcome to the <br><span>Robotics Academy of Beirut</span></h1>
         <p>Empowering the next generation of engineers and technology leaders through high-impact hardware design, modern automation, and robust cybersecurity principles.</p>
         <a href="#register" class="cta-button">Pre-Register Now</a>
     </section>
 
+    <!-- Curriculum Section -->
     <section class="curriculum-section" id="curriculum">
         <h2 class="section-title">Educational Tracks</h2>
         <div class="grid">
@@ -409,14 +412,11 @@
         </div>
     </section>
 
+    <!-- Registration Form Section -->
     <section class="registration-section" id="register">
-        <h2 class="section-title">Student Registration & Payment</h2>
+        <h2 class="section-title">Student Pre-Registration</h2>
         <div class="form-container">
             <form action="https://formspree.io/f/maqgeqgg" method="POST">
-                
-                <input type="hidden" name="_next" value="https://wa.me/96170987526?text=Hi%20Ahmad,%20I%20just%20registered%20and%20want%20to%20complete%20the%2010%20USD%20payment%20via%20Whish.">
-                <input type="hidden" name="_amount" value="10 USD">
-
                 <div class="form-group">
                     <label for="parentName">Parent / Guardian Name</label>
                     <input type="text" id="parentName" name="parent_name" required placeholder="John Doe">
@@ -438,17 +438,15 @@
                         <option value="advanced">Advanced Developer (Ages 13-15)</option>
                     </select>
                 </div>
-                
-                <button type="submit" class="submit-btn">
-                    Pay 10 USD & Register Securely
-                </button>
+                <button type="submit" class="submit-btn">Submit Application</button>
             </form>
         </div>
 
+        <!-- Payment Methods & WhatsApp Contact Info Box -->
         <div class="info-box">
             <h4>💳 Accepted Payment Methods</h4>
-            <p>• <strong>Registration Fee:</strong> 10 USD required to complete enrollment.</p>
-            <p>• <strong>Visa Card / Whish App:</strong> Online Visa card payments and Whish transfers are processed securely through the official gateway and received directly into our Whish account (<strong>0096170987526</strong>).</p>
+            <p>• <strong>Whish Money:</strong> Direct transfer is fully accepted to our official Whish account: <strong>0096170987526</strong>.</p>
+            <p>• <strong>Visa Card:</strong> Online Visa card payments can be securely received directly into our Whish account via the Whish portal.</p>
             <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
                 📞 Need help? Contact us via WhatsApp: 
                 <a href="https://wa.me/96170987526" target="_blank" class="whatsapp-link">
@@ -458,6 +456,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>Powered by an electronics engineering group</p>
         <p style="margin-top: 5px; font-weight: 700;">Headed by <strong>Ahmad Zaatari</strong></p>
