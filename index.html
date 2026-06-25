@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Academy of Beirut | RAB</title>
+    <style>
+        :root {
+            --bg-dark: #060913;
+            --card-dark: #111726;
+            --cyber-cyan: #00F2FE;
+            --cyber-blue: #4FACFE;
+            --signal-orange: #FF512F;
+            --shield-gold: #F0A500;
+            --text-light: #FFFFFF;
+            --text-muted: #8A99AD;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(6, 9, 19, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-container svg {
+            height: 55px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyber-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 100px;
+            padding: 80px 8% 120px 8%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 242, 254, 0.08) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 35px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-blue));
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
+        }
+
+        /* Curriculum Section */
+        .curriculum-section {
+            padding: 80px 8%;
+            background-color: rgba(17, 23, 38, 0.4);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--signal-orange);
+            margin: 15px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 11fr));
+            gap: 40px;
+        }
+
+        .card {
+            background-color: var(--card-dark);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 40px 30px;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--cyber-cyan);
+        }
+
+        .card.phase-2::before { background: var(--signal-orange); }
+        .card.phase-3::before { background: var(--shield-gold); }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card .age {
+            display: inline-block;
+            font-size: 0.9rem;
+            padding: 3px 10px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        .card ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 8%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background-color: var(--bg-dark);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: var(--shield-gold);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Bar -->
+    <nav>
+        <div class="logo-container">
+            <!-- EMBEDDED RAB LOGO ENGINE -->
+            <svg viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="cyberCyan" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F2FE" /><stop offset="100%" stop-color="#4FACFE" /></linearGradient>
+                    <linearGradient id="accOrange" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FF512F" /><stop offset="100%" stop-color="#DD2476" /></linearGradient>
+                    <linearGradient id="shieldGold" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FCEBB6" /><stop offset="100%" stop-color="#F0A500" /></linearGradient>
+                    <filter id="cyberGlow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="5" result="blur" /><feComposite in="SourceGraphic" in2="blur" operator="over" /></filter>
+                </defs>
+                <g transform="translate(40, 25)">
+                    <polygon points="70,145 270,40 470,40 540,145 470,250 270,250" fill="none" stroke="url(#shieldGold)" stroke-width="2" stroke-dasharray="6 6" opacity="0.35" />
+                    <path d="M 130,245 L 220,135 L 310,135 L 390,245" fill="none" stroke="url(#cyberCyan)" stroke-width="4" stroke-dasharray="8 4" opacity="0.5"/>
+                    <path d="M 100,265 L 100,125 L 170,125 C 195,125 210,137 210,155 C 210,173 195,185 170,185 L 100,185 M 160,185 L 215,265" fill="none" stroke="url(#cyberCyan)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M 230,265 L 285,125 L 340,265 M 255,220 L 315,220" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M 370,265 L 370,125 L 440,125 C 465,125 480,137 480,153 C 480,167 468,179 445,181 C 472,183 485,197 485,215 C 485,237 465,265 435,265 Z" fill="none" stroke="url(#cyberCyan)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <circle cx="100" cy="125" r="6" fill="url(#shieldGold)" filter="url(#cyberGlow)"/>
+                    <circle cx="285" cy="125" r="6" fill="url(#accOrange)" filter="url(#cyberGlow)"/>
+                    <circle cx="420" cy="125" r="6" fill="url(#shieldGold)" filter="url(#cyberGlow)"/>
+                </g>
+                <g transform="translate(585, 0)">
+                    <text x="0" y="145" font-family="sans-serif" font-weight="900" font-size="46" fill="#FFFFFF" letter-spacing="3">ROBOTICS</text>
+                    <text x="0" y="190" font-family="sans-serif" font-weight="700" font-size="34" fill="url(#cyberCyan)" letter-spacing="1.5">ACADEMY</text>
+                    <text x="0" y="230" font-family="sans-serif" font-weight="400" font-size="22" fill="#8A99AD" letter-spacing="8">OF BEIRUT</text>
+                </g>
+            </svg>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#curriculum">Curriculum</a></li>
+            <li><a href="#about">Engineering Board</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to the <br><span>Robotics Academy of Beirut</span></h1>
+        <p>Empowering the next generation of engineers and technology leaders through high-impact hardware design, modern automation, and robust cybersecurity principles.</p>
+        <a href="#curriculum" class="cta-button">Explore Programs</a>
+    </section>
+
+    <!-- Interactive Academy Curriculum Sections -->
+    <section class="curriculum-section" id="curriculum">
+        <h2 class="section-title">Educational Tracks</h2>
+        <div class="grid">
+            
+            <!-- Track 1 -->
+            <div class="card phase-1">
+                <span class="age">Ages 8 – 10</span>
+                <h3>The Junior Explorer</h3>
+                <ul>
+                    <li>Block-based coding frameworks</li>
+                    <li>Basic mechanical gear mechanisms</li>
+                    <li>Sensor-driven response diagnostics</li>
+                    <li>Introduction to smart robotic hardware</li>
+                </ul>
+            </div>
+
+            <!-- Track 2 -->
+            <div class="card phase-2">
+                <span class="age">Ages 11 – 12</span>
+                <h3>The Rising Engineer</h3>
+                <ul>
+                    <li>Circuit logic & breadboard testing</li>
+                    <li>Microcontrollers (BBC micro:bit)</li>
+                    <li>Virtual schematic circuit simulation</li>
+                    <li>Foundational embedded automation</li>
+                </ul>
+            </div>
+
+            <!-- Track 3 -->
+            <div class="card phase-3">
+                <span class="age">Ages 13 – 15</span>
+                <h3>The Advanced Developer</h3>
+                <ul>
+                    <li>Textual language runtime compilation (C++/Python)</li>
+                    <li>Hardware automation platforms (Arduino architecture)</li>
+                    <li>Internet of Things (IoT) network protocols</li>
+                    <li>Embedded systems firmware encryption defense</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Corporate Verified Footer Signature -->
+    <footer>
+        <p>Powered by an electronics engineering group</p>
+        <p style="margin-top: 5px; font-weight: 700;">Headed by <strong>Ahmad Zaatari</strong></p>
+        <p style="font-size: 0.85rem; color: var(--cyber-cyan); margin-top: 5px; letter-spacing: 0.5px;">Electronics Engineer & Cybersecurity Specialist</p>
+        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">&copy; 2026 Robotics Academy of Beirut. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
