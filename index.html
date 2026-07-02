@@ -172,6 +172,7 @@
             margin: 0 auto;
         }
 
+        /* تعديل الكرت ليكون ممتداً بشكل متساوٍ وموحد الارتفاع */
         .card {
             background-color: var(--card-dark);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -182,6 +183,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            height: 100%; /* جعل الكروت تأخذ نفس الارتفاع داخل الشبكة */
         }
 
         .card::before {
@@ -200,22 +202,25 @@
         .card.english-track::before { background: var(--english-purple); }
         .card.muay-thai-track::before { background: var(--muay-thai-red); }
 
-        /* تعديل الحاوية لمنع قص الكلمات وظهور الصورة كاملة ومحمية */
+        /* توحيد ارتفاع حاوية الصور لضمان تناسق أبعاد الكروت تماماً */
         .card-image-wrapper {
             width: 100%;
+            height: 240px; /* تحديد ارتفاع ثابت وموحد لجميع الصور */
             overflow: hidden;
             position: relative;
-            background-color: var(--card-dark);
+            background-color: #ffffff; /* خلفية بيضاء نقية تتناسب مع الصور وتمنع ظهور فراغات */
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* تعديل خصائص الصورة لعرض الأطراف بالكامل بدون زووم أو قص للخطوط */
+        /* تعديل احتواء الصورة لمنع التمدد أو القص العشوائي */
         .card-image-wrapper img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: contain; /* يعرض الصورة كاملة بدون قص ويحافظ على نسبها الأصلية */
             display: block;
-            object-fit: contain; 
             transition: transform 0.4s ease;
         }
 
@@ -232,7 +237,7 @@
             padding: 25px 25px 0 25px;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            flex-grow: 1; /* يضمن تمدد المحتوى الداخلي ليتساوى مع الكرت الأكبر */
         }
 
         .card h3 {
@@ -417,6 +422,9 @@
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 max-width: 100%;
             }
+            .card-image-wrapper {
+                height: 200px; /* تقليل الارتفاع قليلاً على الشاشات المتوسطة للتناسق */
+            }
         }
 
         @media (max-width: 768px) {
@@ -464,7 +472,7 @@
     <section class="curriculum-section" id="curriculum">
         <h2 class="section-title">Essential Academic & Growth Programs</h2>
         
-        <!-- الصف الأول: دورات الروبوتكس الثلاثة الأساسية -->
+        <!-- الصف الأول: دورات الروبوتكس الثلاثة الأساسية (متساوية الأحجام والارتفاع) -->
         <div class="grid-main">
             <!-- Track 1 -->
             <div class="card phase-1">
