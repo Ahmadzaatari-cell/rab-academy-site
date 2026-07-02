@@ -197,9 +197,10 @@
         .card.english-track::before { background: var(--english-purple); }
         .card.muay-thai-track::before { background: var(--muay-thai-red); }
 
-        /* Media Wrapper & Dual Display for Muay Thai Video */
+        /* Media Containers */
         .card-image-wrapper {
             width: 100%;
+            height: 240px; /* تحديد ارتفاع موحد لجميع الحاويات لضمان التوافق التام */
             position: relative;
             background-color: var(--card-dark);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -208,9 +209,11 @@
             cursor: pointer;
         }
 
+        /* الحاوية المزدوجة المخصصة لقسم الموياي تاي */
         .card-image-wrapper.dual-media {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            height: 240px;
             background-color: #000000;
         }
 
@@ -218,16 +221,16 @@
             width: 100%;
             height: 100%;
             display: block;
-            object-fit: cover; 
+            object-fit: cover; /* جعل الصور تملأ المساحة بشكل ذكي بدون تمديد أو فراغات سوداء */
             transition: transform 0.4s ease;
             pointer-events: none; 
         }
 
-        /* ستايل مخصص لعناصر الفيديو لمنع خروجها عن الكرت والتحكم بحجمها التلقائي */
+        /* تعديل الفيديو لملء المساحة المخصصة له بالكامل دون أطراف سوداء */
         .card-image-wrapper video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* تمنع ظهور المساحات السوداء تماماً من فوق ومن تحت */
             display: block;
             border-left: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -329,399 +332,4 @@
         .form-group input, .form-group select {
             width: 100%;
             padding: 12px;
-            background-color: rgba(6, 9, 19, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 6px;
-            color: var(--text-light);
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--cyber-cyan);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-blue));
-            border: none;
-            border-radius: 6px;
-            color: var(--bg-dark);
-            font-size: 1.05rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: opacity 0.3s, transform 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.15);
-        }
-
-        .submit-btn:hover {
-            opacity: 0.95;
-            transform: translateY(-2px);
-        }
-
-        /* Info Box */
-        .info-box {
-            background-color: rgba(17, 23, 38, 0.5);
-            border: 1px dashed rgba(240, 165, 0, 0.25);
-            border-radius: 12px;
-            padding: 25px;
-            width: 100%;
-            max-width: 600px;
-            text-align: left;
-        }
-
-        .info-box h4 {
-            color: var(--shield-gold);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-
-        .info-box p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .info-box strong {
-            color: var(--text-light);
-        }
-
-        .whatsapp-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--whatsapp-green);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 60px 8%;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background-color: var(--bg-dark);
-            color: var(--text-muted);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        footer p {
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-
-        footer .headline {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-light);
-            margin-bottom: 8px;
-        }
-
-        footer .headline strong {
-            color: var(--shield-gold);
-        }
-
-        footer .subtitle {
-            font-size: 0.88rem;
-            color: var(--cyber-cyan);
-            letter-spacing: 0.5px;
-            font-weight: 500;
-            margin-bottom: 30px;
-        }
-
-        footer .copyright {
-            font-size: 0.8rem;
-            opacity: 0.5;
-            margin-bottom: 0;
-        }
-
-        /* Full Image Modal Styles */
-        .image-modal {
-            display: none; 
-            position: fixed;
-            z-index: 99999; 
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(6, 9, 19, 0.96); 
-            justify-content: center;
-            align-items: center;
-            cursor: zoom-out; 
-        }
-
-        .image-modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            max-width: 92%;
-            max-height: 88%;
-            object-fit: contain;
-            border-radius: 6px;
-            box-shadow: 0 0 40px rgba(0, 242, 254, 0.25);
-            transition: transform 0.25s ease;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #ffffff;
-            font-size: 45px;
-            font-weight: 300;
-            cursor: pointer;
-            transition: color 0.3s;
-            line-height: 1;
-            z-index: 100000;
-        }
-
-        .close-modal:hover {
-            color: var(--cyber-cyan);
-        }
-
-        /* Responsive Layout Updates */
-        @media (max-width: 992px) {
-            .grid-main {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-            .grid-secondary {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-            .card-image-wrapper.dual-media {
-                grid-template-columns: 1fr; /* يرجع لعرض عمودي على الشاشات المتوسطة والصغيرة */
-            }
-            .card-image-wrapper video {
-                border-left: none;
-                border-top: 1px solid rgba(255, 255, 255, 0.05);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.3rem; }
-            .nav-links { display: none; }
-            .close-modal { top: 15px; right: 20px; font-size: 40px; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo-container">
-            <svg viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="cyberCyan" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00F2FE" /><stop offset="100%" stop-color="#4FACFE" /></linearGradient>
-                </defs>
-                <g transform="translate(40, 25)">
-                    <path d="M 100,265 L 100,125 L 170,125 C 195,125 210,137 210,155 C 210,173 195,185 170,185 L 100,185 M 160,185 L 215,265" fill="none" stroke="url(#cyberCyan)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M 230,265 L 285,125 L 340,265 M 255,220 L 315,220" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M 370,265 L 370,125 L 440,125 C 465,125 480,137 480,153 C 480,167 468,179 445,181 C 472,183 485,197 485,215 C 485,237 465,265 435,265 Z" fill="none" stroke="url(#cyberCyan)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
-                <g transform="translate(585, 0)">
-                    <text x="0" y="145" font-family="sans-serif" font-weight="900" font-size="46" fill="#FFFFFF" letter-spacing="3">ROBOTICS</text>
-                    <text x="0" y="190" font-family="sans-serif" font-weight="700" font-size="34" fill="url(#cyberCyan)" letter-spacing="1.5">ACADEMY</text>
-                    <text x="0" y="230" font-family="sans-serif" font-weight="400" font-size="22" fill="#8A99AD" letter-spacing="8">OF BEIRUT</text>
-                </g>
-            </svg>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#curriculum">Curriculum</a></li>
-            <li><a href="#register">Pre-Register</a></li>
-        </ul>
-    </nav>
-
-    <section class="hero" id="home">
-        <h1>Welcome to the <br><span>Robotics Academy of Beirut</span></h1>
-        <p>Empowering the next generation of technology leaders through high-impact hardware design, robotics engineering, English communication mastery, and physical fitness.</p>
-        <a href="#register" class="cta-button">Pre-Register Now</a>
-    </section>
-
-    <section class="curriculum-section" id="curriculum">
-        <h2 class="section-title">Essential Academic & Growth Programs</h2>
-        
-        <div class="grid-main">
-            <div class="card phase-1">
-                <div class="card-image-wrapper">
-                    <img src="image_1.png" alt="The Junior Explorer Curriculum Artwork">
-                </div>
-                <div class="card-content">
-                    <span class="age">Ages 8 – 10</span>
-                    <h3>The Junior Explorer</h3>
-                    <ul>
-                        <li>Block-based coding frameworks</li>
-                        <li>Basic mechanical gear mechanisms</li>
-                        <li>Sensor-driven response diagnostics</li>
-                        <li>Introduction to smart robotic hardware</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card phase-2">
-                <div class="card-image-wrapper">
-                    <img src="image_2.png" alt="The Rising Engineer Curriculum Artwork">
-                </div>
-                <div class="card-content">
-                    <span class="age">Ages 11 – 12</span>
-                    <h3>The Rising Engineer</h3>
-                    <ul>
-                        <li>Circuit logic & breadboard testing</li>
-                        <li>Microcontrollers (BBC micro:bit)</li>
-                        <li>Virtual schematic circuit simulation</li>
-                        <li>Foundational embedded automation</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card phase-3">
-                <div class="card-image-wrapper">
-                    <img src="image_3.png" alt="The Advanced Developer Curriculum Artwork">
-                </div>
-                <div class="card-content">
-                    <span class="age">Ages 13 – 15</span>
-                    <h3>The Advanced Developer</h3>
-                    <ul>
-                        <li>Textual language runtime compilation (C++/Python)</li>
-                        <li>Hardware automation platforms (Arduino architecture)</li>
-                        <li>Internet of Things (IoT) network protocols</li>
-                        <li>Embedded systems firmware encryption defense</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="grid-secondary">
-            <div class="card english-track">
-                <div class="card-image-wrapper">
-                    <img src="image_4.png" alt="Essential Growth English Speaking Class Artwork">
-                </div>
-                <div class="card-content">
-                    <span class="age">Essential Growth</span>
-                    <h3>English Speaking</h3>
-                    <ul>
-                        <li>Interactive public speaking simulations</li>
-                        <li>Technical vocabulary development</li>
-                        <li>Project presentation & pitching skills</li>
-                        <li>Building communicative confidence</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card muay-thai-track">
-                <div class="card-image-wrapper dual-media">
-                    <img src="image_5.png" alt="Essential Sport Muay Thai Martial Arts Artwork">
-                    <video autoplay loop muted playsinline>
-                        <source src="Little Girl Hit Her Dad While Coaching😅.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="card-content">
-                    <span class="age">Essential Sport</span>
-                    <h3>Muay Thai Martial Arts</h3>
-                    <ul>
-                        <li>Professional structured physical conditioning</li>
-                        <li>Core martial arts discipline & stamina</li>
-                        <li>Essential practical self-defense skills</li>
-                        <li>Enhancing mental focus & agility</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="registration-section" id="register">
-        <h2 class="section-title">Student Pre-Registration</h2>
-        <div class="form-container">
-            <form action="https://formspree.io/f/maqgeqgg" method="POST">
-                <div class="form-group">
-                    <label for="parentName">Parent / Guardian Name</label>
-                    <input type="text" id="parentName" name="parent_name" required placeholder="John Doe">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="name@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number (WhatsApp)</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+961 XX XXX XXX">
-                </div>
-                <div class="form-group">
-                    <label for="studentAge">Student Age / Preferred Track</label>
-                    <select id="studentAge" name="student_track" required>
-                        <option value="" disabled selected>Select age group</option>
-                        <option value="junior">Junior Explorer (Ages 8-10) + Full Program Bundle</option>
-                        <option value="rising">Rising Engineer (Ages 11-12) + Full Program Bundle</option>
-                        <option value="advanced">Advanced Developer (Ages 13-15) + Full Program Bundle</option>
-                    </select>
-                </div>
-                <button type="submit" class="submit-btn">Submit Application</button>
-            </form>
-        </div>
-
-        <div class="info-box">
-            <h4>💳 Tuition & Program Info</h4>
-            <p>• <strong>All-Inclusive Package:</strong> The registered spot completely covers the core Robotics/Cybersecurity track alongside full integrated access to BOTH the <strong>English Speaking Course</strong> and <strong>Muay Thai</strong> sport modules.</p>
-            <p>• <strong>Payment Methods:</strong> We accept direct cash settlement or transfers via Whish Money to our official account: <strong>0096170987526</strong>.</p>
-            <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;">
-                📞 Questions? Contact us directly via WhatsApp: 
-                <a href="https://wa.me/96170987526" target="_blank" class="whatsapp-link"> +961 70 987 526</a>
-            </p>
-        </div>
-    </section>
-
-    <footer>
-        <p>Powered by an electronics engineering group</p>
-        <p class="headline">Headed by <strong>Ahmad Zaatari</strong></p>
-        <p class="subtitle">Electronics Engineer & Cybersecurity Specialist</p>
-        <p class="copyright">&copy; 2026 Robotics Academy of Beirut. All Rights Reserved.</p>
-    </footer>
-
-    <div class="image-modal" id="imageModal">
-        <span class="close-modal" id="closeModal">&times;</span>
-        <img class="modal-content" id="fullImage" src="" alt="Full Screen Preview">
-    </div>
-
-    <script>
-        const modal = document.getElementById('imageModal');
-        const fullImg = document.getElementById('fullImage');
-        const closeBtn = document.getElementById('closeModal');
-        const wrappers = document.querySelectorAll('.card-image-wrapper');
-
-        // يستمع للنقرات على الصور بداخل حاويات الميديا فقط لفتح وضع التكبير
-        wrappers.forEach(wrapper => {
-            wrapper.addEventListener('click', function(e) {
-                // نضمن فتح الـ Modal فقط عند الضغط على الصورة وليس على عنصر التحكم بالفيديو
-                if (e.target.tagName !== 'VIDEO') {
-                    const targetImg = this.querySelector('img');
-                    if (targetImg) {
-                        modal.style.display = 'flex'; 
-                        fullImg.src = targetImg.src;
-                        fullImg.alt = targetImg.alt;
-                        document.body.style.overflow = 'hidden'; 
-                    }
-                }
-            });
-        });
-
-        // إغلاق النافذة المنبثقة
-        closeBtn.addEventListener('click', closeModalWindow);
-
-        modal.addEventListener('click', function(e) {
-            if (e.target !== closeBtn) {
-                closeModalWindow();
-            }
-        });
-
-        function closeModalWindow() {
-            modal.style.display = 'none';
-            document.body.style.overflow = ''; 
-        }
-    </script>
-
-</body>
-</html>
+            background-color
