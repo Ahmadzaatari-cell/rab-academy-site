@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robotics Academy of Beirut | RAB</title>
     
-    <!-- Google Search Console Verification Method -->
     <meta name="google-site-verification" content="f19ab22248d08e21" />
     <meta name="google-site-verification" content="Ba1pidEX9flI_yTNkallGWQEZHceMaeJPRd6gJTbax4" />
 
-    <!-- SEO Tags -->
     <meta name="description" content="The premier Robotics Academy of Beirut (RAB). Empowering kids and teens with electronics engineering, robotics hardware automation, cybersecurity, technical English, and Muay Thai fitness.">
     <meta name="keywords" content="Robotics Academy of Beirut, RAB, Robotics Lebanon, STEM Beirut, Ahmad Zaatari, Learn Robotics Beirut, Cybersecurity for kids, English speaking course, Muay Thai kids Beirut">
     <meta name="robots" content="index, follow">
@@ -200,13 +198,13 @@
         .card.english-track::before { background: var(--english-purple); }
         .card.muay-thai-track::before { background: var(--muay-thai-red); }
 
-        /* حاوية الصورة لملء الفراغات ومنع الخط الأسود تماماً */
+        /* تعديل الخلفية إلى الأبيض لمنع ظهور أي فراغ أسود ناتج عن شفافية أو أبعاد الصور */
         .card-image-wrapper {
             width: 100%;
             aspect-ratio: 1.35 / 1; 
             overflow: hidden;
             position: relative;
-            background-color: var(--card-dark);
+            background-color: #ffffff; 
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
@@ -366,7 +364,7 @@
             font-weight: 700;
         }
 
-        /* Footer المنسق والمعدل بالمسافات لعدم تداخل الخطوط */
+        /* Footer */
         footer {
             text-align: center;
             padding: 60px 8%;
@@ -429,7 +427,6 @@
 </head>
 <body>
 
-    <!-- Header Navigation Bar -->
     <nav>
         <div class="logo-container">
             <svg viewBox="0 0 1000 450" xmlns="http://www.w3.org/2000/svg">
@@ -455,20 +452,16 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <h1>Welcome to the <br><span>Robotics Academy of Beirut</span></h1>
         <p>Empowering the next generation of technology leaders through high-impact hardware design, robotics engineering, English communication mastery, and physical fitness.</p>
         <a href="#register" class="cta-button">Pre-Register Now</a>
     </section>
 
-    <!-- Curriculum Section -->
     <section class="curriculum-section" id="curriculum">
         <h2 class="section-title">Essential Academic & Growth Programs</h2>
         
-        <!-- الصف الأول: دورات الروبوتكس الثلاثة الأساسية -->
         <div class="grid-main">
-            <!-- Track 1 -->
             <div class="card phase-1">
                 <div class="card-image-wrapper">
                     <img src="image_1.png" alt="The Junior Explorer Curriculum Artwork">
@@ -485,7 +478,6 @@
                 </div>
             </div>
 
-            <!-- Track 2 -->
             <div class="card phase-2">
                 <div class="card-image-wrapper">
                     <img src="image_2.png" alt="The Rising Engineer Curriculum Artwork">
@@ -502,7 +494,6 @@
                 </div>
             </div>
 
-            <!-- Track 3 -->
             <div class="card phase-3">
                 <div class="card-image-wrapper">
                     <img src="image_3.png" alt="The Advanced Developer Curriculum Artwork">
@@ -520,9 +511,7 @@
             </div>
         </div>
 
-        <!-- الصف الثاني: دورة الإنجليزي والرياضة ممركزة بالمنتصف تماماً -->
         <div class="grid-secondary">
-            <!-- Track 4: English Course (تم تعديل مسار الصورة من 4 إلى 4 للتحميل الصحيح) -->
             <div class="card english-track">
                 <div class="card-image-wrapper">
                     <img src="image_4.png" alt="Essential Growth English Speaking Class Artwork">
@@ -539,7 +528,6 @@
                 </div>
             </div>
 
-            <!-- Track 5: Muay Thai Sport -->
             <div class="card muay-thai-track">
                 <div class="card-image-wrapper">
                     <img src="image_5.png" alt="Essential Sport Muay Thai Martial Arts Artwork">
@@ -558,7 +546,6 @@
         </div>
     </section>
 
-    <!-- Registration Form Section -->
     <section class="registration-section" id="register">
         <h2 class="section-title">Student Pre-Registration</h2>
         <div class="form-container">
@@ -588,7 +575,6 @@
             </form>
         </div>
 
-        <!-- Payment Methods Info Box -->
         <div class="info-box">
             <h4>💳 Tuition & Program Info</h4>
             <p>• <strong>All-Inclusive Package:</strong> The registered spot completely covers the core Robotics/Cybersecurity track alongside full integrated access to BOTH the <strong>English Speaking Course</strong> and <strong>Muay Thai</strong> sport modules.</p>
@@ -600,7 +586,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>Powered by an electronics engineering group</p>
         <p class="headline">Headed by <strong>Ahmad Zaatari</strong></p>
