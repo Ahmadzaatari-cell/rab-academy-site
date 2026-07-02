@@ -200,17 +200,17 @@
         .card.english-track::before { background: var(--english-purple); }
         .card.muay-thai-track::before { background: var(--muay-thai-red); }
 
-        /* تعديل الحاوية لمنع قص الكلمات وظهور الصورة كاملة ومحمية */
+        /* تعديل حاوية الصور لضمان عدم قص أي نص أو إخفاء التفاصيل الجانبية */
         .card-image-wrapper {
             width: 100%;
-            overflow: hidden;
             position: relative;
             background-color: var(--card-dark);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             display: block;
+            overflow: hidden;
         }
 
-        /* تعديل خصائص الصورة لعرض الأطراف بالكامل بدون زووم أو قص للخطوط */
+        /* جعل أبعاد الصورة مرنة بالكامل ومتناسقة مئة بالمئة تلقائياً */
         .card-image-wrapper img {
             width: 100%;
             height: auto;
