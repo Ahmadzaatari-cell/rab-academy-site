@@ -1,17 +1,215 @@
-/* توحيد أبعاد حاوية الصور في الكروت تماماً */
-.card-image-wrapper {
-    width: 100%;
-    height: 240px; /* الارتفاع الثابت والموحد */
-    overflow: hidden;
-    position: relative;
-    background-color: #0c101d; /* خلفية داكنة متناسقة مع الثيم في حال وجود أي هوامش */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Academy of Beirut | RAB</title>
+    
+    <meta name="google-site-verification" content="f19ab22248d08e21" />
+    <meta name="google-site-verification" content="Ba1pidEX9flI_yTNkallGWQEZHceMaeJPRd6gJTbax4" />
 
-/* التعديل السحري لقص الصورة الأولى من الأسفل ومحاذاتها مع البقية */
-.card-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ملء الحاوية بالكامل لضمان التناسق */
-    object-position: center top; /* التركيز على الجزء العلوي وقص الزيادة التحتية (الأيقونات) */
-    display: block;
-}
+    <meta name="description" content="The premier Robotics Academy of Beirut (RAB). Empowering kids and teens with electronics engineering, robotics hardware automation, cybersecurity, technical English, and Muay Thai fitness.">
+    <meta name="keywords" content="Robotics Academy of Beirut, RAB, Robotics Lebanon, STEM Beirut, Ahmad Zaatari, Learn Robotics Beirut, Cybersecurity for kids, English speaking course, Muay Thai kids Beirut">
+    <meta name="robots" content="index, follow">
+
+    <style>
+        :root {
+            --bg-dark: #060913;
+            --card-dark: #111726;
+            --cyber-cyan: #00F2FE;
+            --cyber-blue: #4FACFE;
+            --signal-orange: #FF512F;
+            --shield-gold: #F0A500;
+            --english-purple: #A855F7;
+            --muay-thai-red: #E63946;
+            --text-light: #FFFFFF;
+            --text-muted: #8A99AD;
+            --whatsapp-green: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: #060913;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container svg {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyber-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 8% 80px 8%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, rgba(0, 242, 254, 0.06) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 35px;
+            background: linear-gradient(90deg, var(--cyber-cyan), var(--cyber-blue));
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Curriculum Section Layout */
+        .curriculum-section {
+            padding: 60px 8%;
+            background-color: rgba(17, 23, 38, 0.3);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 50px;
+            position: relative;
+            color: #ffffff;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: var(--signal-orange);
+            margin: 12px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* الصف الأول: 3 أعمدة للروبوتكس */
+        .grid-main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* الصف الثاني: كرتين ممركزين في المنتصف للانجليزي والرياضة */
+        .grid-secondary {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 840px;
+            margin: 0 auto;
+        }
+
+        /* تصميم الكروت الموحدة */
+        .card {
+            background-color: var(--card-dark);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding-bottom: 30px;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--cyber-cyan);
+            z-index: 10;
+        }
+
+        .card.phase-2::before { background: var(--signal-orange); }
+        .card.phase-3::before { background: var(--shield-gold); }
+        .card.english-track::before { background: var(--english-purple); }
+        .card.muay-thai-track::before { background: var(--muay-thai-red); }
+
+        /* حاوية الصورة بارتفاع ثابت لضمان خط أفق واحد تماماً */
+        .card-image-wrapper {
+            width: 100%;
+            height: 250px; /* الارتفاع المثالي لقص الجزء السفلي وعرض الطاولة البيضاء بالتساوي */
+            overflow: hidden;
+            position: relative;
+            background-color: #060913;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* كود القص التلقائي للجزء السفلي من الصورة الأولى والمحاذاة المباشرة مع البقية */
+        .card-image-wrapper img {
+            width:
