@@ -200,7 +200,7 @@
         .card.english-track::before { background: var(--english-purple); }
         .card.muay-thai-track::before { background: var(--muay-thai-red); }
 
-        /* تعديل حاوية الصور لمنع قص الكلمات وتفعيل الضغط */
+        /* تعديل الحاوية لضمان عمل كبسة الماوس بشكل كامل ودون تأثير الحماية */
         .card-image-wrapper {
             width: 100%;
             position: relative;
@@ -208,20 +208,39 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             display: block;
             overflow: hidden;
-            cursor: pointer; /* تظهر مؤشر اليد لتوضيح امكانية الضغط */
+            cursor: pointer;
         }
 
-        /* جعل الصور مرنة وتلقائية دون اقتصاص الأطراف */
         .card-image-wrapper img {
             width: 100%;
             height: auto;
             display: block;
             object-fit: contain; 
             transition: transform 0.4s ease;
+            pointer-events: none; /* تمنع المتصفح من تعطيل النقرة وتمريرها مباشرة للحاوية الأب */
         }
 
         .card:hover .card-image-wrapper img {
-            transform: scale(1.02);
+            transform: scale(1.03);
+        }
+
+        /* إشارة توضيحية خفيفة تظهر للمستخدم أنه يمكن تكبير الصورة */
+        .card-image-wrapper::after {
+            content: '🔍 Click to expand';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(6, 9, 19, 0.8);
+            color: var(--cyber-cyan);
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-image-wrapper:hover::after {
+            opacity: 1;
         }
 
         .card:hover {
@@ -410,54 +429,46 @@
         }
 
         /* -------------------------------------- */
-        /* Full Image Modal Styles (تنسيقات نافذة عرض الصورة الكاملة) */
+        /* Full Image Modal Styles */
         /* -------------------------------------- */
         .image-modal {
-            display: none; /* مخفي بشكل افتراضي */
+            display: none; 
             position: fixed;
-            z-index: 9999; /* طبقة عليا فوق كل عناصر الموقع */
+            z-index: 99999; /* رقم مرتفع جداً لضمان تخطي الناف بار */
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(6, 9, 19, 0.95); /* خلفية داكنة شفافة */
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(6, 9, 19, 0.96); 
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            cursor: zoom-out; /* يوضح للمستخدم أن كبسة أخرى ستغلق النافذة */
         }
 
         .image-modal.active {
             display: flex;
-            opacity: 1;
         }
 
         .modal-content {
-            max-width: 90%;
-            max-height: 85%;
+            max-width: 92%;
+            max-height: 88%;
             object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
+            border-radius: 6px;
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.25);
+            transition: transform 0.25s ease;
         }
 
-        .image-modal.active .modal-content {
-            transform: scale(1);
-        }
-
-        /* زر كبسة الإغلاق التلقائي */
         .close-modal {
             position: absolute;
-            top: 25px;
-            right: 35px;
+            top: 20px;
+            right: 30px;
             color: #ffffff;
-            font-size: 40px;
-            font-weight: bold;
+            font-size: 45px;
+            font-weight: 300;
             cursor: pointer;
             transition: color 0.3s;
-            user-select: none;
             line-height: 1;
+            z-index: 100000;
         }
 
         .close-modal:hover {
@@ -478,7 +489,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.3rem; }
             .nav-links { display: none; }
-            .close-modal { top: 15px; right: 20px; font-size: 35px; }
+            .close-modal { top: 15px; right: 20px; font-size: 40px; }
         }
     </style>
 </head>
@@ -521,7 +532,6 @@
     <section class="curriculum-section" id="curriculum">
         <h2 class="section-title">Essential Academic & Growth Programs</h2>
         
-        <!-- الصف الأول: دورات الروبوتكس الثلاثة الأساسية -->
         <div class="grid-main">
             <!-- Track 1 -->
             <div class="card phase-1">
@@ -575,7 +585,6 @@
             </div>
         </div>
 
-        <!-- الصف الثاني: دورة الإنجليزي والرياضة ممركزة بالمنتصف تماماً -->
         <div class="grid-secondary">
             <!-- Track 4: English Course -->
             <div class="card english-track">
@@ -663,46 +672,45 @@
         <p class="copyright">&copy; 2026 Robotics Academy of Beirut. All Rights Reserved.</p>
     </footer>
 
-    <!-- -------------------------------------- -->
-    <!-- Full Image Modal Box Structure -->
-    <!-- -------------------------------------- -->
+    <!-- Full Image Modal Structure -->
     <div class="image-modal" id="imageModal">
         <span class="close-modal" id="closeModal">&times;</span>
         <img class="modal-content" id="fullImage" src="" alt="Full Screen Preview">
     </div>
 
-    <!-- -------------------------------------- -->
     <!-- JavaScript Section -->
-    <!-- -------------------------------------- -->
     <script>
         const modal = document.getElementById('imageModal');
         const fullImg = document.getElementById('fullImage');
         const closeBtn = document.getElementById('closeModal');
-        const imageWrappers = document.querySelectorAll('.card-image-wrapper img');
+        const wrappers = document.querySelectorAll('.card-image-wrapper');
 
-        // عند الضغط على أي صورة داخل الكروت تفتح النافذة بالحجم الكامل
-        imageWrappers.forEach(img => {
-            img.addEventListener('click', function() {
-                modal.classList.add('active');
-                fullImg.src = this.src;
-                fullImg.alt = this.alt;
-                document.body.style.overflow = 'hidden'; // منع سكرول الصفحة أثناء فتح الصورة
+        // السكريبت الآن يراقب الحاوية بالكامل لضمان التقاط الكبسة فوراً
+        wrappers.forEach(wrapper => {
+            wrapper.addEventListener('click', function() {
+                const targetImg = this.querySelector('img');
+                if (targetImg) {
+                    modal.style.display = 'flex'; // استخدام display مباشر لضمان الظهور الفوري
+                    fullImg.src = targetImg.src;
+                    fullImg.alt = targetImg.alt;
+                    document.body.style.overflow = 'hidden'; 
+                }
             });
         });
 
-        // عند الضغط على زر الإغلاق (X) تعود الصفحة كما كانت
+        // كبسة الإغلاق (X)
         closeBtn.addEventListener('click', closeModalWindow);
 
-        // عند الضغط على الصورة المفتوحة نفسها أو في أي مكان خارجها تغلق وتعود متل الأول تماماً
+        // كبسة ثانية على أي مكان بالخلفية أو على الصورة ترجع كل شي متل الأول
         modal.addEventListener('click', function(e) {
-            if (e.target !== fullImg) {
+            if (e.target !== closeBtn) {
                 closeModalWindow();
             }
         });
 
         function closeModalWindow() {
-            modal.classList.remove('active');
-            document.body.style.overflow = ''; // إعادة تفعيل السكرول الطبيعي للموقع
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; 
         }
     </script>
 
